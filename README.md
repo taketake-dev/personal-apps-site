@@ -50,6 +50,6 @@ Workflowは `public-files.json` のHTML/CSSだけを `_site/` へコピーしま
 
 2026-11-07にJob RunnerのREADME、`docs/workflow-hooks.md`、作者プロファイルの `drive-logs.md`、`settings.yaml`、Workflow、`upload-log.ps1`、`transfer.json`、ログ整理・Hook・Discord実装を読み取り確認しました。秘密情報ファイルやログ本体は読み取っていません。Job Runnerのコード・認証設定は変更しません。
 
-Drive転送は未認証・無効の段階です。スコープの明示設定がないため、rcloneの既定値と実際の許可範囲の未確定を区別して掲載しています。有効化時には実際の同意画面・設定に合わせて再確認が必要です。
+2026-11-07にJob Runner側でGoogleの本番環境切替、drive.fileの明示設定と初回認証、疑似ログの転送・上書き、認証更新、Museの本文取得を確認し、転送を有効化しました。個別ページへ実績と許可範囲を反映しています。本番の朝実行は手動検証していません。
 
 動画ツールの情報は従来の掲載内容を維持しています。
