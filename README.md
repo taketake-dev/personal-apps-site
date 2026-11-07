@@ -1,10 +1,12 @@
 # 個人開発アプリ案内・Google連携ポリシーサイト
 
-taketake-devの個人開発アプリの共通案内サイト。静的HTML/CSSをGitHub Pagesで配信します。リポジトリ名と既存URLを維持し、動画制作・投稿ツールとJob Runnerを掲載します。
+taketake-devの個人開発アプリの共通案内サイト。静的HTML/CSSをGitHub Pagesで配信します。動画制作・投稿ツールとJob Runnerを掲載します。
 
-- 公開先：<https://taketake-dev.github.io/video-publishing-site/>
+- リポジトリ：<https://github.com/taketake-dev/personal-apps-site>
+- 公開先：<https://taketake-dev.github.io/personal-apps-site/>
+- ローカル：`C:\dev\repos\personal-apps-site`
 - `index.html`：共通トップ・アプリ一覧・運営者情報
-- `privacy.html`：共通原則とアプリ別ポリシーへの入口。既存YouTube OAuth参照の互換性のため、動画ツール固有の取り扱いも全文継続掲載
+- `privacy.html`：共通原則とアプリ別ポリシーへの入口。動画ツール固有の取り扱いも全文継続掲載
 - `terms.html`：共通利用条件と既存の動画ツール個別条件
 - `apps/video-publishing/`：動画ツール紹介・個別プライバシーポリシー
 - `apps/job-runner/`：Job Runner紹介・個別プライバシーポリシー
@@ -14,6 +16,8 @@ taketake-devの個人開発アプリの共通案内サイト。静的HTML/CSSを
 
 OAuthクライアントとトークンはアプリごとに分離します。サイト内に認証機能や秘密情報を置きません。
 
+旧名は `video-publishing-site` です。改名に伴いPagesのURLも変更されます。GitHubのリポジトリURLとは異なり、旧Pages URLの自動転送はありません。既存YouTube OAuthに登録したホームページ・ポリシー・規約URLも、新URLの公開確認後に更新してください。[移行手順](docs/publishing.md)に対応表を記載しています。HTMLの相対パスとページ構成は維持します。
+
 ## ローカル確認
 
 リポジトリルートで実行します。Python標準ライブラリのみ使用し、Pythonはuv管理環境を使用できます。
@@ -21,10 +25,10 @@ OAuthクライアントとトークンはアプリごとに分離します。サ
 ```powershell
 uv run --no-project python scripts/prepare_site.py --check
 uv run --no-project python scripts/prepare_site.py
-uv run --no-project python -m http.server 8765 --bind 127.0.0.1 --directory _site
+uv run --no-project python -m http.server 18743 --bind 127.0.0.1 --directory _site
 ```
 
-ブラウザで <http://127.0.0.1:8765/> を開きます。終了はCtrl+C。ステージングは `_site/` のみを再生成します。公開処理は行いません。詳細は [公開・移行手順](docs/publishing.md) を参照。
+ブラウザで <http://127.0.0.1:18743/> を開きます。終了はCtrl+C。ステージングは `_site/` のみを再生成します。公開処理は行いません。詳細は [公開・移行手順](docs/publishing.md) を参照。
 
 ## 公開の境界
 
