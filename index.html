@@ -3,47 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="個人運営の動画制作・投稿ツールの機能とデータの取り扱いをご案内します。">
-  <title>動画制作・投稿ツール | アプリのご案内</title>
+  <meta name="description" content="taketake-devの個人開発アプリ一覧。動画制作・投稿ツールとJob Runnerの用途、Google連携、データの取り扱いをご案内します。">
+  <title>個人開発アプリとGoogle連携 | taketake-dev アプリ案内</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">動画制作・投稿ツール</a>
-      <nav aria-label="メインナビゲーション">
-        <a href="index.html" aria-current="page">アプリ紹介</a>
-        <a href="privacy.html">プライバシー</a>
-        <a href="terms.html">利用規約</a>
-      </nav>
-    </div>
-  </header>
-  <main id="main">
-    <section class="hero" aria-labelledby="app-title">
-      <p class="eyebrow">個人運営の制作ツール</p>
-      <h1 id="app-title">動画制作・投稿ツール</h1>
-      <p class="lead">台本から動画を制作し、指定したYouTubeチャンネルへ投稿するための、Windows向けツールです。</p>
-      <p>運営者が管理するチャンネルの動画制作と投稿を行います。一般向けのアカウント登録や、動画を受け付けるサービスは提供していません。</p>
-    </section>
-    <section aria-labelledby="features">
-      <h2 id="features">できること</h2>
-      <div class="cards">
-        <article class="card"><span class="step">01</span><h3>動画を制作</h3><p>用意した台本・音声設定・素材を基に、動画を作成します。</p></article>
-        <article class="card"><span class="step">02</span><h3>投稿内容を設定</h3><p>タイトル・概要欄・タグと、公開範囲などの投稿条件を設定します。</p></article>
-        <article class="card"><span class="step">03</span><h3>YouTubeへ投稿</h3><p>Googleで認証したチャンネルを確認し、YouTube Data APIを使って動画を送信します。</p></article>
-      </div>
-    </section>
-    <section aria-labelledby="data">
-      <h2 id="data">Googleとの連携</h2>
-      <p>GoogleのOAuth認証を利用します。投稿先の確認と動画のアップロードに必要な権限を使用し、Googleアカウントのパスワードを本ツールが受け取ることはありません。</p>
-      <p>利用する情報、保存方法、データの削除とアクセス権の解除については、<a href="privacy.html">プライバシーポリシー</a>をご確認ください。利用にあたっては、<a href="terms.html">利用規約</a>もご確認ください。</p>
-    </section>
-    <section class="contact" aria-labelledby="contact">
-      <h2 id="contact">運営・お問い合わせ</h2>
-      <p>アプリやデータの取り扱いに関するお問い合わせ：<a href="mailto:utsuroi.media@gmail.com">utsuroi.media@gmail.com</a></p>
-    </section>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="index.html">taketake-dev <span>アプリ案内</span></a>
+    <nav aria-label="メインナビゲーション"><a href="index.html" aria-current="page">アプリ一覧</a><a href="privacy.html">プライバシー</a><a href="terms.html">利用規約</a></nav>
+  </div></header>
+  <main id="main" class="home">
+
+<section class="hero"><p class="eyebrow">PERSONAL APPS / GOOGLE INTEGRATION</p><h1>日々の作業を支える、<br>個人開発のアプリ。</h1><p class="lead">動画の制作・投稿から、定期ジョブの実行まで。<br>アプリの用途と、連携するデータの取り扱いをご案内します。</p><p>運営者本人が管理するアカウントとWindows PCで使うツールです。現在、一般向けの会員登録や処理代行サービスは提供していません。</p></section>
+<section aria-labelledby="apps"><div class="section-heading"><h2 id="apps">アプリ一覧</h2><span>02 APPS</span></div><div class="cards app-cards">
+<article class="card"><p class="eyebrow">01 / YOUTUBE</p><h3><a href="apps/video-publishing/">動画制作・投稿ツール</a></h3><p>台本・音声・素材から動画を制作し、指定したYouTubeチャンネルへ投稿するWindows向けツール。</p><p class="tag">YouTube Data API · 個人利用</p><div class="card-links"><a href="apps/video-publishing/">アプリの詳細 →</a><a href="apps/video-publishing/privacy.html">データの取り扱い</a></div></article>
+<article class="card"><p class="eyebrow">02 / GOOGLE DRIVE</p><h3><a href="apps/job-runner/">Job Runner</a></h3><p>Windowsの定期ジョブを実行し、ログを記録。最新ログをDriveへ転送し、本人が許可したMuseから確認する構成です。</p><p class="tag">Drive連携は導入準備中</p><div class="card-links"><a href="apps/job-runner/">アプリの詳細 →</a><a href="apps/job-runner/privacy.html">データの取り扱い</a></div></article></div></section>
+<section class="principle-grid"><div><p class="eyebrow">DATA & PERMISSIONS</p><h2>連携内容は、アプリごとに。</h2></div><div><p>要求する権限、情報の保存先、外部サービスへの送信はアプリによって異なります。共通ポリシーと各アプリの説明を合わせてご確認ください。</p><p><a href="privacy.html">共通プライバシーポリシー →</a></p></div></section>
+<section class="contact" id="operator"><p class="eyebrow">OPERATOR / CONTACT</p><h2>運営者・お問い合わせ</h2><p>運営者：<strong>taketake-dev</strong>（個人開発）</p><p>アプリ、データの取り扱い、削除のご相談：<a href="mailto:utsuroi.media@gmail.com">utsuroi.media@gmail.com</a></p><p><a href="https://github.com/taketake-dev">GitHubプロフィール</a></p></section>
   </main>
-  <footer><p>動画制作・投稿ツール · <a href="privacy.html">プライバシーポリシー</a> · <a href="terms.html">利用規約</a></p></footer>
+  <footer><p>taketake-dev · 個人開発アプリ</p><p><a href="index.html">アプリ一覧・運営者</a> · <a href="privacy.html">プライバシーポリシー</a> · <a href="terms.html">利用規約</a></p></footer>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Job Runnerのログ、Drive権限と保存、Muse・Discordへの共有、認証情報と削除方法を説明します。">
+  <title>Job Runnerのプライバシーポリシー | taketake-dev アプリ案内</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="../../index.html">taketake-dev <span>アプリ案内</span></a>
+    <nav aria-label="メインナビゲーション"><a href="../../index.html">アプリ一覧</a><a href="../../privacy.html">プライバシー</a><a href="../../terms.html">利用規約</a></nav>
+  </div></header>
+  <main id="main" class="document">
+
+<p class="eyebrow">PRIVACY / JOB RUNNER</p><h1>Job Runner<br>プライバシーポリシー</h1><p class="updated">最終更新日：<time datetime="2026-11-07">2026年11月7日</time></p><p><a href="./">アプリ紹介</a> · <a href="../../privacy.html">共通ポリシー</a> · <a href="../../terms.html">利用規約</a></p><p>共通ポリシーと合わせて、運営者本人が使用するJob Runnerの作者プロファイルに適用します。実行される個々のジョブのサービス連携や成果物は、各ツールの設定・ポリシーに従います。</p>
+<div class="notice"><strong>現在の状態</strong><p>2026年11月7日時点でDriveの初回認証・トークン取得・実転送は未完了です。Workflowの <code>drive_log</code> は <code>if: false</code> で無効です。以下のDrive・Muse連携は、有効化後に予定する取り扱いを含みます。</p></div>
+<section><h2>1. 利用サービスと要求権限</h2><p>Windows上のジョブ実行、rcloneによるGoogle Drive API連携、Discord Webhook通知を利用します。Google Driveのログは本人が接続を許可したMetaのAIエージェントMuseから読む構成です。Museの接続権限はJob RunnerのOAuthとは別に本人が管理します。</p><p>Google OAuthは専用プロジェクト「job-runner-logs」のデスクトップ用クライアントを使う設計です。現在の転送設定・呼出処理はスコープを明示しておらず、認証前のため許可済みのスコープはありません。rclone公式の既定スコープは <code>https://www.googleapis.com/auth/drive</code> で、アプリデータ用フォルダを除くDrive全体へのアクセスです。ログ1ファイルの転送という用途より広い権限になり得ます。初回認証時に実際の要求権限を確認し、最小限のスコープと転送方法を確定して本ページを更新します。<code>drive.file</code> 等の限定権限で動作確認済みとはしていません。</p></section>
+<section><h2>2. 読み取る情報と送信する情報</h2><ul><li><strong>PC内の入力：</strong>Workflow・設定、Job・Stepの実行結果と標準出力・標準エラーなどを、実行・ログ記録・成否確認に使います。ログには実行日時、処理名、ファイルパス、各ツールが出力した情報が含まれ得ます。</li><li><strong>Google Drive：</strong>終了処理直前のログスナップショットを送信し、所定パスのファイルを作成・更新します。rcloneは転送先の探索・照合に必要なファイル／フォルダのメタデータも扱います。Drive内の無関係な文書を収集する用途ではありませんが、OAuthで許可される範囲とは区別されます。</li><li><strong>認証情報：</strong>OAuthクライアント情報とトークンを、本人が許可したDriveアクセスと認証更新に使います。</li><li><strong>Discord：</strong>開始時はWorkflow名と開始通知、終了時はWorkflow名・成否・失敗Job名だけを送信します。ログの添付はありません。</li></ul><p>ログは本文ごと転送する設計です。公開不可の情報や秘密情報が各ジョブの出力へ混入しないよう、運営者がジョブ設定とログ内容を管理します。</p></section>
+<section><h2>3. 保存場所・期間と認証情報の保護</h2><dl class="data-list"><dt>PC内の実行ログ</dt><dd>UTF-8で実行ごとに保存します。作者プロファイルは保持30日で、次回実行時の整理処理で期限を過ぎた対象ログを削除します。未実行や削除失敗の場合、30日を超えて残ることがあります。</dd><dt>Google Drive</dt><dd>マイドライブの <code>dev/job-runner/logs/latest.log</code> を固定名で上書きし、アプリが管理する現行ログは最新1ファイルです。PC内ログの30日削除とは別管理で、転送を停止しても残存ファイルは自動削除しません。Drive側の変更履歴・ゴミ箱・バックアップ等はGoogle側の仕様に従います。</dd><dt>転送用スナップショット</dt><dd>終了Hook直前に一時コピーを作り、Hook終了時に削除します。異常終了時の残存は次回の一時領域整理等の対象です。</dd><dt>OAuthクライアント情報・トークン</dt><dd>Git管理外のルート <code>.env</code> で扱い、子プロセスの環境変数でrcloneへ渡します。通常のrclone設定ファイルは使わない設計です。動画制作・投稿ツールのDPAPI保護とは異なり、Job Runnerに同じ暗号化保護があるとはしていません。不要時は運営者が削除し、それまで保持します。</dd></dl></section>
+<section><h2>4. 外部共有とAIエージェント</h2><p>ログは本人のGoogle Driveへ送信し、本人が接続を許可したMuseが毎日読み取って当日の実行成否を確認する用途です。AIサービスによるログ処理を含みます。Job RunnerからMuse専用APIへ直接送信する構成ではありません。</p><p>Google、Discord、Muse側の保存期間、二次利用、AI学習への利用可否は各サービスの契約・ポリシー・本人の設定に従います。運営者はこれらの外部サービスによる処理を独自に保証しません。Museに許可する接続範囲とログ内容は、運営者本人が確認・管理します。</p><p>公開リンクによるログの配布は予定していません。Discord通知を閲覧できる範囲は本人が指定した送信先のアクセス設定に従います。</p></section>
+<section><h2>5. 連携解除・削除方法</h2><ol><li>Job Runnerを停止し、Drive転送Hookを無効化または削除して追加転送を止めます。Discord通知も不要なら通知Hookまたは通知設定を無効化します。</li><li><a href="https://myaccount.google.com/connections">Googleアカウントの接続管理画面</a>からJob Runner用OAuthアクセス権を解除します。MuseのDrive接続も不要なら、Muse側の接続設定で別途解除します。</li><li>PC内の対象ログ、一時コピー、不要な <code>.env</code> の認証情報を削除します。他アプリの認証情報と混同しないよう確認します。</li><li>Google Driveの <code>dev/job-runner/logs/latest.log</code> を削除し、必要に応じてゴミ箱・変更履歴等も確認します。PC内のログ削除やOAuth解除だけではDriveのログは消えません。</li><li>Discordに送信済みのメッセージは送信先で削除します。Muse側に保持されたデータの削除は同サービスの手順に従います。</li></ol><p>ログの削除は、各ジョブが生成した成果物や外部へ投稿した内容の削除とは別です。削除の相談は <a href="mailto:utsuroi.media@gmail.com">utsuroi.media@gmail.com</a> へご連絡ください。</p></section>
+<section><h2>6. 運営者・改定</h2><p>運営者：taketake-dev。お問い合わせ：<a href="mailto:utsuroi.media@gmail.com">utsuroi.media@gmail.com</a>。認証範囲や連携運用を変更する際は、実態に合わせて本ページを更新します。</p></section>
+  </main>
+  <footer><p>taketake-dev · 個人開発アプリ</p><p><a href="../../index.html">アプリ一覧・運営者</a> · <a href="../../privacy.html">プライバシーポリシー</a> · <a href="../../terms.html">利用規約</a></p></footer>
+</body>
+</html>

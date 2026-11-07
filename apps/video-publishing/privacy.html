@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YouTube権限、送信データ、DPAPI保護、保存期間、削除方法を説明します。">
+  <title>動画制作・投稿ツールのプライバシーポリシー | taketake-dev アプリ案内</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="../../index.html">taketake-dev <span>アプリ案内</span></a>
+    <nav aria-label="メインナビゲーション"><a href="../../index.html">アプリ一覧</a><a href="../../privacy.html">プライバシー</a><a href="../../terms.html">利用規約</a></nav>
+  </div></header>
+  <main id="main" class="document">
+<p class="eyebrow">PRIVACY / VIDEO PUBLISHING</p><h1>動画制作・投稿ツール<br>プライバシーポリシー</h1><p class="updated">最終更新日：<time datetime="2026-11-07">2026年11月7日</time></p><p><a href="./">アプリ紹介</a> · <a href="../../privacy.html">共通ポリシー</a> · <a href="../../terms.html">利用規約</a></p><p>以下は本ツール固有の取り扱いです。共通ポリシーと合わせて適用します。</p>    <section><h2>Google・YouTubeとの連携</h2>
+      <p>本ツールはYouTube API Services（YouTube Data API）を使用します。GoogleのOAuth認証で、動画のアップロード権限（youtube.upload）とYouTube情報の読み取り権限（youtube.readonly）を要求します。現在、読み取り権限は投稿先チャンネルの照合に使用します。</p>
+      <p>Googleのサービスには、<a href="https://policies.google.com/privacy">Googleプライバシーポリシー</a>も適用されます。</p>
+    </section>
+    <section><h2>利用する情報と目的</h2>
+      <ul>
+        <li><strong>チャンネルID：</strong>認証したチャンネルと、指定された投稿先が一致することを確認します。</li>
+        <li><strong>動画と投稿情報：</strong>指定されたMP4、タイトル、概要欄、タグ、カテゴリ、公開範囲、子ども向け指定をYouTubeへ送信します。</li>
+        <li><strong>認証トークン：</strong>許可されたAPIの利用と、再認証なしで継続して投稿するために使用します。</li>
+        <li><strong>投稿結果と処理記録：</strong>動画ID、URL、応答に含まれる処理状態、日時、エラー識別情報などを、成否の確認、障害調査、重複投稿の防止に使用します。</li>
+      </ul>
+      <p>本ツールがGoogleアカウントのパスワードを取得・保存することはありません。</p>
+    </section>
+    <section><h2>保存と保護</h2>
+      <p>動画、投稿情報、投稿結果などは本ツールを実行するPCへ保存します。認証トークンと再開可能アップロードのセッション情報は、Windowsのユーザー単位の暗号化機能（DPAPI）で保護し、通常の制作成果物とは別の認証保存先に保存します。これらの秘密情報を公開サイトや制作成果物へコピーする設計にはしていません。</p>
+      <p>生成物の保存期間は実行環境の設定と削除処理によります。標準の削除設定はMP4が7日、実行データが30日ですが、設定変更や削除処理の未実行によって実際の保存期間は異なります。認証・アップロードセッションの保存データは、この削除処理の対象外です。不要になった認証データは運営者が別途削除します。</p>
+    </section>
+    <section><h2>外部への送信と公開</h2>
+      <p>認証と投稿に必要な情報をGoogle・YouTubeへ送信します。アップロードした動画や投稿情報の公開範囲は、指定された投稿条件とYouTube側の設定に従います。</p>
+      <p>本ツールのYouTube連携処理では、取得したGoogle・YouTubeの情報を広告目的で販売したり、AIモデルの学習へ送信したりしません。運営者によるデータの利用は、本ポリシーに記載した目的に限定します。</p>
+    </section>
+    <section><h2>アクセス権の解除とデータの削除</h2>
+      <p><a href="https://myaccount.google.com/connections">Googleアカウントの接続管理画面</a>から、本ツールのアクセス権を解除できます。解除後は、その認証を使用したAPI利用ができなくなります。</p>
+      <p>アクセス権の解除だけでは、PCに保存済みのファイルやYouTubeに投稿済みの動画は自動削除されません。ローカルの認証・投稿記録の削除は運営者へご連絡ください。運営者自身が利用する場合は、関連処理を停止したうえで、設定した保存先から対象データを削除します。投稿済み動画はYouTube Studioなど、YouTubeの管理機能で削除できます。</p>
+    </section>
+<section><h2>お問い合わせ・改定</h2>
+      <p>情報の取り扱い、削除のご相談、ご質問・苦情は、運営者の<a href="mailto:utsuroi.media@gmail.com">utsuroi.media@gmail.com</a>へご連絡ください。</p>
+      <p>機能や運用の変更に応じて本ポリシーを更新し、このページに掲載します。</p>
+    </section>
+
+  </main>
+  <footer><p>taketake-dev · 個人開発アプリ</p><p><a href="../../index.html">アプリ一覧・運営者</a> · <a href="../../privacy.html">プライバシーポリシー</a> · <a href="../../terms.html">利用規約</a></p></footer>
+</body>
+</html>

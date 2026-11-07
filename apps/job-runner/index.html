@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Windowsの定期ジョブとログ記録。Google Driveへの最新ログ転送、Museの確認、Discord通知を説明します。">
+  <title>Job Runner | taketake-dev アプリ案内</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="../../index.html">taketake-dev <span>アプリ案内</span></a>
+    <nav aria-label="メインナビゲーション"><a href="../../index.html">アプリ一覧</a><a href="../../privacy.html">プライバシー</a><a href="../../terms.html">利用規約</a></nav>
+  </div></header>
+  <main id="main" class="document">
+
+<p class="eyebrow">WINDOWS / WORKFLOW AUTOMATION</p><h1>Job Runner</h1><p class="lead">本人の定期ジョブを実行し、実行結果をログに残すWindows用ツールです。</p>
+<div class="notice"><strong>Google Drive連携は導入準備中です。</strong><p>2026年11月7日時点で、専用Google Cloudプロジェクト「job-runner-logs」のDrive APIとデスクトップ用OAuthクライアントの準備は済んでいます。rcloneの初回認証・トークン取得・実転送は未完了で、転送処理は無効です。</p></div>
+<section><h2>できること</h2><ul><li>YAMLのWorkflowに沿ってJob・Stepを順番に実行します。</li><li>UTF-8の実行ログをPC内へ保存します。作者プロファイルの保持設定は30日です。</li><li>開始・終了処理からDiscord通知などの外部処理を呼び出します。</li></ul></section>
+<section><h2>最新ログを確認する連携構成</h2><ol class="flow"><li><strong>PCでログを記録</strong><p>ジョブの実行内容、出力、成否を記録します。</p></li><li><strong>rcloneで本人のGoogle Driveへ転送（準備中）</strong><p>終了通知後に作るログのスナップショットを <code>dev/job-runner/logs/latest.log</code> へ上書きします。</p></li><li><strong>Museで毎日の実行成否を確認</strong><p>MetaのAIエージェントMuseが、本人が接続を許可したGoogle Driveからログを読む用途です。</p></li></ol><p>転送自身の結果・シャットダウン結果・最終終了コードは転送後のPC内ログにのみ残ります。転送に失敗すると古いDriveログが残るため、Muse側でログ本文の実行開始日時を確認します。</p></section>
+<section><h2>Googleとの連携と権限</h2><p>Google Drive APIをrclone経由で利用する設計です。現在の設定にはスコープの明示がなく、認証前のため実際に許可するスコープは未確定です。転送先が1ファイルでも、OAuthの権限がその1ファイルに限定されるとは限りません。</p><p><a href="privacy.html">Job Runnerのプライバシーポリシー →</a></p><p><a href="../../privacy.html">共通ポリシー</a> · <a href="../../terms.html">利用規約</a></p></section>
+<section class="contact"><h2>運営・お問い合わせ</h2><p>taketake-dev（個人開発） · <a href="mailto:utsuroi.media@gmail.com">utsuroi.media@gmail.com</a></p></section>
+  </main>
+  <footer><p>taketake-dev · 個人開発アプリ</p><p><a href="../../index.html">アプリ一覧・運営者</a> · <a href="../../privacy.html">プライバシーポリシー</a> · <a href="../../terms.html">利用規約</a></p></footer>
+</body>
+</html>

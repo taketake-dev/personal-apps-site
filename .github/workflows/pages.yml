@@ -26,9 +26,7 @@ jobs:
       - name: Set up Pages
         uses: actions/configure-pages@v5
       - name: Prepare public files
-        run: |
-          mkdir _site
-          cp index.html privacy.html terms.html styles.css _site/
+        run: python3 scripts/prepare_site.py
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
